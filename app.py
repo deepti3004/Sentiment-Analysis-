@@ -21,7 +21,7 @@ st.markdown("""
     /* Header styling */
     .header-container {
         text-align: center;
-        padding: 2rem 0 1.5rem 0;
+        padding: 0rem 0 1.5rem 0;
     }
     .header-badge {
         background-color: #e0f2fe;
@@ -147,9 +147,10 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+st.markdown('<div class="css-card">', unsafe_allow_html=True)
+
 # Input Section inside a clean card container
 with st.container():
-    st.markdown('<div class="css-card">', unsafe_allow_html=True)
     
     text = st.text_area(
         "Enter your text",
@@ -185,14 +186,15 @@ if analyze_clicked:
                 icon = EMOTION_ICONS.get(pred.lower(), "🎯")
 
                 st.markdown(
-                    f'<div style="margin-bottom: 1.5rem;"><span class="prediction-badge">{icon} &nbsp;{pred}</span></div>',
+                    f'<div ><span class="prediction-badge">{icon} &nbsp;{pred}</span></div>',
                     unsafe_allow_html=True
                 )
-
+                
                 st.markdown("<hr style='border: none; border-top: 1px solid #f1f5f9; margin: 1.25rem 0;'>", unsafe_allow_html=True)
                 
+                
                 # Probabilities Section
-                st.markdown("<h4 style='color: #0f172a; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;'>Confidence Breakdown</h4>", unsafe_allow_html=True)
+                st.markdown("<h4 style='color: #0f172a; font-size: 1.1rem; font-weight: 700;'>Confidence Breakdown</h4>", unsafe_allow_html=True)
 
                 for emotion, probability in result["probabilities"].items():
                     prob_float = float(probability)
