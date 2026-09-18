@@ -169,11 +169,12 @@ if analyze_clicked:
     else:
         with st.spinner("Analyzing emotion..."):
             try:
-                BACKEND_URL = "https://sentiment-analysis-6yy5.onrender.com/"
+                BACKEND_URL = "https://sentiment-analysis-6yy5.onrender.com"
 
                 response = requests.post(
                 f"{BACKEND_URL}/predict",
                 json={"text": text}) 
+                
                 response.raise_for_status()
                 result = response.json()
 
